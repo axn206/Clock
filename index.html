@@ -1,9 +1,81 @@
-<html>
-
-<body>
-  <h1>Michael</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif"/>
+<!DOCTYPE html>
+<html lang='en' dir=ltr'>
+<head>
+  <meta charset='utf-8'>
+                       <title>Digital Clock</tilte>
+  <style>
+    * {
+       margin:0; padding: 5;}
+       body {
+            height: 40vh; display: flex; justify-content: center;
+            align-items: center; background: #10101E; max-width: 100%;
+       }
+       .datetime {
+            color: #ff00ff; background:#10101E; font-family: "Times", sans-serif;
+            width: 1020px; height: 300px; padding: 12px 12px; border: 0.001px solid #000;
+            border-radius: 5px;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+            transition: 0.5s; transition-property: background, box-shadow;
+        }
+                       
+        .datetime:hover {
+            font-size: 200px; display: flex; justify-content: center; align-items: center;           
+        }
+        .date {
+            font-family: Georgia, serif; font-size: 50px; font-weight: 600; text-align: center; letter-spacing: 2px;
+            color: #ff990a;
+         }
+        .time {
+          font-size: 200px; display: flex; justify-content: center; align-items: center;              
+        }
+        .time span:not(:last-child) {
+          position: relative;
+          margin: 0 10 px;
+          font-weight: 600; text-align: center; latter-spacing: 5px;}
+         .time span:;ast-child{
+                       background: transparent; font-size: 50px; font-weight: 600; text-transform: uppercase;
+                       margin-top: 10px; padding: 0 10px; border-radius: 50px; color: #fa44pp;}
+                       #hour { color: #fdaa99;}
+                       #minutes { color: #00ffaa;}
+                       #seconds { color: #ffaa00;}
+                       </style> </head>
+<body onload="initClock()" bgcolor=#ffff00">
+  <div>
+                       <span style='animation: change (number-of-seconds)s step-end both;'>
+                                                                                          14:30 </span>
+  <div class="datetime">
+   <div class='date'> <span id="dayname">Day</span>
+                    <span id="month">Month</span>
+                    <span id="daynum">00</span>
+                    <span id="year">Year</span> </div>
+                    <div class="time">
+                    <span id="hour">00</span>:
+                    <span id="minutes">00</span>:
+                    <span id="seconds">00</span>
+                    <span id="period">AM</span> 
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <script type="text/javascript">
+                    function updateClock(){
+                      var now = new Date();
+                      var dname = now.getDay(), mo = now.getMonth(), dnum = now.getDate(), yr = now.getFullYear(), hou=now.getHour(),
+                    min=now.getMinutes(), sec=now.getSeconds(), pe = "AM";
+                    
+                    if (hou >=12) {
+                    pe="PM";}
+                    if (hou==0) {
+                    hou=12;}
+                    if (hou>12){
+                    hou=hou-12;}
+                    Number.prototype.pad = function(digits){
+                      for (var n = this.toString(); n.length < digits; n = 0+n); return n;}
+                    var months = ["Jan", Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    var week = ["Sun", 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    var ids = ['dayname', 'month', 'daynum', 'year', 'hour', 'minutes', 'seconds', 'period'];
+                                                                                                    
+                                                                                                           
   </body>
   
 </html>
