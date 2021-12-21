@@ -1,81 +1,114 @@
 <!DOCTYPE html>
-<html lang='en' dir=ltr'>
-<head>
-  <meta charset='utf-8'>
-                       <title>Digital Clock</tilte>
+<html lang="en" dir="ltr">
+ <head>
+  <meta charset="utf-8">
+                       <title>Digital Clock</title>
   <style>
     * {
-       margin:0; padding: 5;}
-       body {
+       margin: 0; padding: 5;
+      }
+ body {
             height: 40vh; display: flex; justify-content: center;
-            align-items: center; background: #10101E; max-width: 100%;
+            align-items: center; background: #10101F; max-width: 100%;
        }
-       .datetime {
+.datetime {
             color: #ff00ff; background:#10101E; font-family: "Times", sans-serif;
             width: 1020px; height: 300px; padding: 12px 12px; border: 0.001px solid #000;
             border-radius: 5px;
             -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
-            transition: 0.5s; transition-property: background, box-shadow;
+            transition: 0.5s;
+            transition-property: background, box-shadow;
         }
                        
-        .datetime:hover {
-            font-size: 200px; display: flex; justify-content: center; align-items: center;           
+.datetime:hover {
+            background: #fafab0;
+            box-shadow: 0 0 4px #1F1010;
         }
-        .date {
-            font-family: Georgia, serif; font-size: 50px; font-weight: 600; text-align: center; letter-spacing: 2px;
+.date {
+            font-family: "duff", serif; font-size: 75px; font-weight: 600;
+            text-align: center; letter-spacing: 2px;
             color: #ff990a;
          }
-        .time {
+.time {
           font-size: 200px; display: flex; justify-content: center; align-items: center;              
         }
-        .time span:not(:last-child) {
+.time span:not(:last-child) {
           position: relative;
-          margin: 0 10 px;
-          font-weight: 600; text-align: center; latter-spacing: 5px;}
-         .time span:;ast-child{
-                       background: transparent; font-size: 50px; font-weight: 600; text-transform: uppercase;
-                       margin-top: 10px; padding: 0 10px; border-radius: 50px; color: #fa44pp;}
-                       #hour { color: #fdaa99;}
-                       #minutes { color: #00ffaa;}
-                       #seconds { color: #ffaa00;}
-                       </style> </head>
-<body onload="initClock()" bgcolor=#ffff00">
-  <div>
-                       <span style='animation: change (number-of-seconds)s step-end both;'>
-                                                                                          14:30 </span>
+          margin: 0 10px;
+          font-weight: 500; text-align: center; letter-spacing: 5px;
+        }
+.time span:last-child {
+                       background: transparent; font-size: 40px; font-weight: 600; text-transform: uppercase;
+                       margin-top: 8px; padding: 0 10px; border-radius: 50px; color: #caac0f;
+                      }
+   #hour { color: #fd0ad9;}
+   #minutes { color: #00ffaa;}
+   #seconds { color: #0faa00;}
+</style>
+</head>
+  
+<body onload="initClock()" bgcolor="#fff000">
+ <div>
+       <span style='animation: change (number-of-seconds)s step-end both;'>
+             14:30
+       </span>
+    
   <div class="datetime">
-   <div class='date'> <span id="dayname">Day</span>
-                    <span id="month">Month</span>
-                    <span id="daynum">00</span>
-                    <span id="year">Year</span> </div>
-                    <div class="time">
-                    <span id="hour">00</span>:
-                    <span id="minutes">00</span>:
-                    <span id="seconds">00</span>
-                    <span id="period">AM</span> 
-                    </div>
-                    </div>
-                    </div>
+     <div class="date"> 
+       <span id="dayname">Day</span>
+          <span id="month">Month</span>
+             <span id="daynum">00</span>
+                <span id="year">Year</span>
+     </div>
+     <div class="time">
+       <span id="hour">00</span>:
+          <span id="minutes">00</span>:
+             <span id="seconds">00</span>
+                 <span id="period">AM</span> 
+     </div>
+   </div>
+  </div>
                     
                     <script type="text/javascript">
-                    function updateClock(){
+                    function updateClock() {
                       var now = new Date();
-                      var dname = now.getDay(), mo = now.getMonth(), dnum = now.getDate(), yr = now.getFullYear(), hou=now.getHour(),
-                    min=now.getMinutes(), sec=now.getSeconds(), pe = "AM";
+                      var dname = now.getDay(),
+                          mo = now.getMonth(),
+                          dnum = now.getDate(),
+                          yr = now.getFullYear(),
+                          hou=now.getHours(),
+                          min=now.getMinutes(),
+                          sec=now.getSeconds(),
+                          pe = "AM";
                     
                     if (hou >=12) {
-                    pe="PM";}
+                      pe="PM";
+                    }
                     if (hou==0) {
-                    hou=12;}
+                      hou=12;
+                    }
                     if (hou>12){
-                    hou=hou-12;}
+                      hou=hou-12;
+                    }
                     Number.prototype.pad = function(digits){
-                      for (var n = this.toString(); n.length < digits; n = 0+n); return n;}
-                    var months = ["Jan", Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                      for (var n = this.toString(); n.length < digits; n = 0 + n);
+                      return n;
+                    }
+                      
+                    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                     var week = ["Sun", 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                     var ids = ['dayname', 'month', 'daynum', 'year', 'hour', 'minutes', 'seconds', 'period'];
-                                                                                                    
-                                                                                                           
+                    for(var i =0; i<ids.length; i++)
+                      document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+                    }
+                   function initClock() {
+                      updateClock();
+                      window.setInterval("updateClock()", 1);
+                    }                                                
+              </script>                                                                                       
+         <span style = " animation: change (number-of-seconds)s step-end both;">
+           15:00
+  </span>
   </body>
   
 </html>
