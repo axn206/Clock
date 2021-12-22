@@ -40,7 +40,7 @@
         }
 .time span:last-child {
                        background: transparent; font-size: 40px; font-weight: 600; text-transform: uppercase;
-                       margin-top: 8px; padding: 0 10px; border-radius: 50px; color: #caac0f;
+                       margin-top: 8px; padding: 0 10px; border-radius: 50px; color: rgba(255, 33, 65, 0.5);
                       }
    #hour { 
     color: #fd0ad9;
@@ -54,9 +54,58 @@
    #dayname {
    color: #baba19;}
    #daynum {
-   color: #fafa0f;}
+   color: #fa0a0f;}
    #year {
    color: #aa00dd;}
+   
+   div.demo {
+  width: 250px;
+  height: 250px;
+  box-shadow: 16px 14px 20px #0000008c;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.demo::before{
+  content: "";
+  /* override the gradient here */
+  background-image: conic-gradient(
+    #ff0052 20deg,
+    transparent 120deg
+  );
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  animation: rotate 2s linear infinite;
+}
+
+div.demo::after{
+  content: "CSSScript";
+  width: 240px;
+  height: 240px;
+  background: #101010;
+  position: absolute;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0092;
+  font-size: larger;
+  letter-spacing: 5px;
+  box-shadow: inset 20px 20px 20px #0000008c;
+}
+   @keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-360deg);
+  }
+}
 </style>
 </head>
   
@@ -66,7 +115,7 @@
        <span style='animation: change (number-of-seconds)s step-end both;'>
              14:30
        </span>
-    
+   <div class="demo"> 
   <div class="datetime">
      <div class="date"> 
        <span id="dayname">Day</span>
@@ -82,6 +131,7 @@
      </div>
    </div>
   </div>
+ </div>
                     
                     <script type="text/javascript">
                     function updateClock() {
