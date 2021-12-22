@@ -3,6 +3,7 @@
  <head>
   <meta charset="utf-8">
                        <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     * {
        margin: 0; padding: 5;
@@ -47,7 +48,8 @@
 </style>
 </head>
   
-<body onload="initClock()" bgcolor="#fff000">
+<body onload="initClock()">
+ <!--Digital Clock Start -->
  <div>
        <span style='animation: change (number-of-seconds)s step-end both;'>
              14:30
@@ -95,10 +97,12 @@
                       return n;
                     }
                       
-                    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                    var week = ["Sun", 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                    var ids = ['dayname', 'month', 'daynum', 'year', 'hour', 'minutes', 'seconds', 'period'];
-                    for(var i =0; i<ids.length; i++)
+                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octorber", "November", "December"];
+                    var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+                    var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+                     for (var i = 0; i < ids.length; i++)
+                     
                       document.getElementById(ids[i]).firstChild.nodeValue = values[i];
                     }
                    function initClock() {
@@ -106,9 +110,7 @@
                       window.setInterval("updateClock()", 1);
                     }                                                
               </script>                                                                                       
-         <span style = " animation: change (number-of-seconds)s step-end both;">
-           15:00
-  </span>
+        
   </body>
   
 </html>
