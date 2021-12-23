@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
  <head>
-  <meta charset="utf-8">
+  <meta charset = "utf-8 " name="viewport" content="width=device-width", initial-scale=1.0">
                        <title>Digital Clock</title>
   <link rel="stylesheet" href="style.css">
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <style>
     * {
        margin: 0; padding: 5;
+	max-width: 1020px;
+	height: auto;
+	width: 100%;
       }
  body {
-            height: 40vh; display: flex; justify-content: center;
+            height: auto; width: max-width; display: flex; justify-content: center;
             align-items: center; background: #10101F; max-width: 100%;
        }
 .datetime {
-            color: #ff00ff; background:#10101E; font-family: "Times", sans-serif;
-            width: 1020px; height: 300px; padding: 12px 12px; border: 0.001px solid #000;
+            color: #f000ff; background:#10101E; font-family: "Arial Narrow", sans-serif;
+	    max-width: 100vhx;
+            width: 100%; height: auto; padding: 12px 12px; border: 0.001px solid #000;
             border-radius: 5px;
             -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
             transition: 0.5s;
-            transition-property: background, box-shadow;
+            transition-property: background, box-shadow; justify-content: center;
         }
                        
 .datetime:hover {
@@ -26,21 +31,22 @@
             box-shadow: 0 0 4px #1F1010;
         }
 .date {
-            font-family: "Times", serif; font-size: 55px; font-weight: 600;
-            text-align: center; letter-spacing: 2px;
+            font-size: 7.5vh; font-weight: 600;
+            text-align: center; letter-spacing: 2vh;
             color: #ff990a;
          }
-.time {
-          font-size: 200px; display: flex; justify-content: center; align-items: center;              
+.time {		font-family: "monospace", sans-serif; 
+          font-size: 30vh; display: flex; justify-content: center;
+	  align-items: center;              
         }
 .time span:not(:last-child) {
           position: relative;
           margin: 0 10px;
-          font-weight: 500; text-align: center; letter-spacing: 5px;
+          font-weight: 500; text-align: center; letter-spacing: 2vh;
         }
 .time span:last-child {
-                       background: transparent; font-size: 40px; font-weight: 600; text-transform: uppercase;
-                       margin-top: 8px; padding: 0 10px; border-radius: 50px; color: rgba(255, 33, 65, 0.5);
+                       background: transparent; font-size: 4vh; font-weight: 600; text-transform: uppercase;
+                       margin-top: 8px; padding: 0 10px; border-radius: 50px; color: rgba(255, 83, 25, 0.9);
                       }
    #hour { 
     color: #fd0ad9;
@@ -49,18 +55,19 @@
     color: #00ffaa;
    }
    #seconds {
-    color: #0faa00;
+    color: #0fcdf0;
    }
    #dayname {
-   color: #baba19;}
+   color: #a4d29f;}
    #daynum {
    color: #fa0a0f;}
    #year {
    color: #aa00dd;}
    
-   div.demo {
-  width: 250px;
-  height: 250px;
+  
+  div.demo {
+  width: 1020px;
+  height: 300px;
   box-shadow: 16px 14px 20px #0000008c;
   border-radius: 10px;
   position: relative;
@@ -80,16 +87,16 @@ div.demo::before{
   width: 150%;
   height: 150%;
   position: absolute;
-  animation: rotate 2s linear infinite;
+  animation: rotate 5s linear infinite;
 }
 
 div.demo::after{
-  content: "CSSScript";
-  width: 240px;
-  height: 240px;
+  
+  width: 1020px;
+  height: 300px;
   background: #101010;
   position: absolute;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,11 +118,8 @@ div.demo::after{
   
 <body onload="initClock()">
  <!--Digital Clock Start -->
- <div>
-       <span style='animation: change (number-of-seconds)s step-end both;'>
-             14:30
-       </span>
-   <div class="demo"> 
+
+ <span class="demo"> 
   <div class="datetime">
      <div class="date"> 
        <span id="dayname">Day</span>
@@ -131,7 +135,7 @@ div.demo::after{
      </div>
    </div>
   </div>
- </div>
+ </span>
                     
                     <script type="text/javascript">
                     function updateClock() {
