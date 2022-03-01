@@ -7,21 +7,25 @@
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <style> 
 
-@media only screen and (max-width: 1024px), (min-width: 320px), (max-height: 500px){
-	.text {display: in-line;
-		background-color: white;}
-	
+@media only screen and (max-width: 1020px), (min-width: 320px), (max-height: 500px){
+	.text {display: inline-flex;
+		background-color: white;
+    }
+  }
+
+#period {
+  font-size: 6vh;
+  color: #09f9f9;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5vh;
 }
-
-
 .text {
-	display: block;
+	display: inline-flex;
 	background-color: transparent;
 }
 
 				 
     * {
-       margin: 0; padding: 5;
+       margin: auto; padding: 5;
 	max-width: 1020px;
 	height: auto;
 	width: 100%;
@@ -31,8 +35,8 @@
             align-items: center; background: #10101F; max-width: 100%;
        }
 .datetime {
-            color: #f000ff; background:#10101E; font-family: "Arial Narrow", sans-serif;
-	    max-width: 100vhx;
+            color: #f000ff; background:rgba(7, 0, 0, 0.1); font-family: "Times", serif;
+	          max-width: 100vhx;
             width: auto; height: auto; padding: 12px 12px; border: 0.001px solid #000;
             border-radius: 5px;
             -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
@@ -41,16 +45,16 @@
         }
                        
 .datetime:hover {
-            background: #55cabf;
+            background: #ebb96e;
             box-shadow: 0 0 4px #1F1010;
         }
 .date {
-            font-size: 7.5vh; font-weight: 600;
+            font-size: 4.5vmax; font-weight: 700;
             text-align: center; letter-spacing: 2vh;
             color: #ff990a;
          }
 .time {		font-family: "monospace", sans-serif; 
-          font-size: 30vh; display: flex; justify-content: center;
+          font-size: 19vh; display: flex; justify-content: center;
 	  align-items: center;              
         }
 .time span:not(:last-child) {
@@ -63,22 +67,22 @@
                        margin-top: 8px; padding: 0 10px; border-radius: 50px; color: rgba(255, 83, 25, 0.9);
                       }
    #hour { 
-    color: #fd0ad9;
+    color: #0afdd4;
    }
    #minutes {
-    color: #ff0a0a;
+    color: #f14d4d;
    }
    #seconds {
-    color: #fcdf50;
+    color: #685ef8;
    }
    #dayname {
-   color: #e0a0e0;}
+   color: #dd0aa8;}
    #daynum {
-   color: #fa0a0f;}
+   color: hsl(103, 96%, 51%);}
    #month {
-  color: #a0990f;					}					
+  color: #f7eb06;					}					
    #year {
-   color: #90f909;}
+   color: #09f9f9;}
    
   
   div.demo {
@@ -116,7 +120,7 @@ div.demo::after{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ff0092;
+  color: #f367b6;
   font-size: larger;
   letter-spacing: 5px;
   box-shadow: inset 20px 20px 20px #0000008c;
@@ -183,11 +187,6 @@ div.demo::after{
   }
 }
 
-
-
-
-
-
 </style>
 </head>
   
@@ -222,30 +221,35 @@ div.demo::after{
 
 <!-- Counter- Clock -->
 
-<div style="width=20em; height=20em;">
-<canvas id="canvas" width="1000px" height="1000px"
+<div style="width:auto; height:auto;">
+<canvas id="canvas" width="1200vh" height="1200vh"
 style="background-color:transparent" style="position:center">
-</canvas>                
+</canvas>  
+
+<!-- Made By Michael-->
+<script type="text/javascript">
+  farbbibliothek = new Array();
+  farbbibliothek[0] = new Array("#FF0000","#FF1100","#FF2200","#FF3300","#FF4400","#FF5500","#FF6600","#FF7700","#FF8800","#FF9900","#FFaa00","#FFbb00","#FFcc00","#FFdd00","#FFee00","#FFff00","#FFee00","#FFdd00","#FFcc00","#FFbb00","#FFaa00","#FF9900","#FF8800","#FF7700","#FF6600","#FF5500","#FF4400","#FF3300","#FF2200","#FF1100");
+  farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00");
+  farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00");
+  farbbibliothek[3] = new Array("#FF0000","#FF4000","#FF8000","#FFC000","#FFFF00","#C0FF00","#80FF00","#40FF00","#00FF00","#00FF40","#00FF80","#00FFC0","#00FFFF","#00C0FF","#0080FF","#0040FF","#0000FF","#4000FF","#8000FF","#C000FF","#FF00FF","#FF00C0","#FF0080","#FF0040");
+  farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000");
+  farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF");
+  farbbibliothek[6] = new Array("#0000FF","#FFFF00");
+  farben = farbbibliothek[4];
+  function farbschrift(){for(var b=0;b<Buchstabe.length;b++){document.all["a"+b].style.color=farben[b]}farbverlauf()}function string2array(b){Buchstabe=new Array();while(farben.length<b.length){farben=farben.concat(farben)}k=0;while(k<=b.length){Buchstabe[k]=b.charAt(k);k++}}function divserzeugen(){for(var b=0;b<Buchstabe.length;b++){document.write("<span id='a"+b+"' class='a"+b+"'>"+Buchstabe[b]+"</span>")}farbschrift()}var a=1;function farbverlauf(){for(var b=0;b<farben.length;b++){farben[b-1]=farben[b]}farben[farben.length-1]=farben[-1];setTimeout("farbschrift()",60)}var farbsatz=1;function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-1))}setInterval("farbtauscher()",10000);
+  
+  text= "Programmed by Michael Nguyen"; 
+  string2array(text);
+  divserzeugen();
+  //document.write(text);
+  </script>
+
 </div>
 <br>
-<div class="text" style="font-size: 1.5rem">
-<script type="text/javascript">
-farbbibliothek = new Array();
-farbbibliothek[0] = new Array("#FF0000","#FF1100","#FF2200","#FF3300","#FF4400","#FF5500","#FF6600","#FF7700","#FF8800","#FF9900","#FFaa00","#FFbb00","#FFcc00","#FFdd00","#FFee00","#FFff00","#FFee00","#FFdd00","#FFcc00","#FFbb00","#FFaa00","#FF9900","#FF8800","#FF7700","#FF6600","#FF5500","#FF4400","#FF3300","#FF2200","#FF1100");
-farbbibliothek[1] = new Array("#00FF00","#000000","#00FF00","#00FF00");
-farbbibliothek[2] = new Array("#00FF00","#FF0000","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00","#00FF00");
-farbbibliothek[3] = new Array("#FF0000","#FF4000","#FF8000","#FFC000","#FFFF00","#C0FF00","#80FF00","#40FF00","#00FF00","#00FF40","#00FF80","#00FFC0","#00FFFF","#00C0FF","#0080FF","#0040FF","#0000FF","#4000FF","#8000FF","#C000FF","#FF00FF","#FF00C0","#FF0080","#FF0040");
-farbbibliothek[4] = new Array("#FF0000","#EE0000","#DD0000","#CC0000","#BB0000","#AA0000","#990000","#880000","#770000","#660000","#550000","#440000","#330000","#220000","#110000","#000000","#110000","#220000","#330000","#440000","#550000","#660000","#770000","#880000","#990000","#AA0000","#BB0000","#CC0000","#DD0000","#EE0000");
-farbbibliothek[5] = new Array("#000000","#000000","#000000","#FFFFFF","#FFFFFF","#FFFFFF");
-farbbibliothek[6] = new Array("#0000FF","#FFFF00");
-farben = farbbibliothek[4];
-function farbschrift(){for(var b=0;b<Buchstabe.length;b++){document.all["a"+b].style.color=farben[b]}farbverlauf()}function string2array(b){Buchstabe=new Array();while(farben.length<b.length){farben=farben.concat(farben)}k=0;while(k<=b.length){Buchstabe[k]=b.charAt(k);k++}}function divserzeugen(){for(var b=0;b<Buchstabe.length;b++){document.write("<span id='a"+b+"' class='a"+b+"'>"+Buchstabe[b]+"</span>")}farbschrift()}var a=1;function farbverlauf(){for(var b=0;b<farben.length;b++){farben[b-1]=farben[b]}farben[farben.length-1]=farben[-1];setTimeout("farbschrift()",60)}var farbsatz=1;function farbtauscher(){farben=farbbibliothek[farbsatz];while(farben.length<text.length){farben=farben.concat(farben)}farbsatz=Math.floor(Math.random()*(farbbibliothek.length-1))}setInterval("farbtauscher()",10000);
-
-text= "Michael make it"; 
-string2array(text);
-divserzeugen();
-//document.write(text);
-</script></div>   
+<div class="text" style="font-size: 2vh">
+  <br>
+</div>   
 
 
 
@@ -276,7 +280,7 @@ divserzeugen();
                       return n;
                     }
                       
-                    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octorber", "November", "December"];
+                    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
                     var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
                     var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
                     var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
@@ -384,11 +388,3 @@ function drawHand(ctx, pos, length, width) {
   </body>
   
 </html>
-
-
-
-
-
-
-
-
