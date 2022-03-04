@@ -7,11 +7,47 @@
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
   <style> 
 
-@media only screen and (max-width: 1020px), (min-width: 320px), (max-height: 500px){
-	.text {display: inline-flex;
+@media only screen and (max-width: 1020px), (min-width: 320px), (max-height: 500px), (max-width: 768px){
+	.datetime {display: inline-flex;
 		background-color: white;
+    font-size: smaller;
     }
   }
+  @media only screen and (min-resolution: 150dpi){
+  .datetime {
+    font-size: smaller;
+    
+  }
+  .time {
+    font-size: small;
+  }
+  
+}
+@media only screen and (max-resolution: 150dpi) and (max-width: 480px){
+  .datetime {
+    font-size: 20px;
+  }
+  .time {
+    font-size: small;
+  }
+  div .demo{
+    font-size: smaller;
+    position: absolute;
+    float: inline-end;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
+  .datetime {
+    float: right;
+    width: 15em;
+  }
+  .time{
+    font-size: small;
+  }
+  .date {
+    text-align: right;
+  }
+}
 
 #period {
   font-size: 6vh;
